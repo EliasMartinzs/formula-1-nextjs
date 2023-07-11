@@ -7,17 +7,37 @@
   padding: 0;
   margin: 0;
 }
+
 .bg-gradients {
-  background: #f00000; /* fallback for old browsers */
+  background: #020711;
+}
+
+.bg-drive {
+  background: rgb(18, 21, 32);
+  background: linear-gradient(
+    132deg,
+    rgba(18, 21, 32, 1) 0%,
+    rgba(7, 12, 22, 1) 22%
+  );
+}
+
+.text-stroke {
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #fff;
+}
+
+.bg-pilot {
+  background: #200122; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #dc281e,
-    #f00000
+    #6f0000,
+    #200122
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #dc281e,
-    #f00000
+    #6f0000,
+    #200122
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -26,7 +46,7 @@
 }
 
 .hovers {
-  @apply transition-colors hover:bg-white hover:text-[#880808];
+  @apply transition-colors hover:bg-white hover:text-[#070C16];
 }
 
 .between {

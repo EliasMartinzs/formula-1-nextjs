@@ -1,11 +1,14 @@
-"use client";
+'use client';
 
-import { Menu, Transition } from "@headlessui/react";
-import Link from "next/link";
-import { useState } from "react";
+import { Menu, Transition } from '@headlessui/react';
+import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Drivers({ drivers }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const navigateToDriversPage = () => {};
 
   return (
     <Menu>
@@ -41,13 +44,17 @@ export default function Drivers({ drivers }) {
                     </Link>
                   </div>
                   {Array.isArray(drivers) ? (
-                    <div className="grid grid-cols-2 lg:grid-cols-7 gap-5 pb-5 mt-5">
-                      {drivers.map((drive) => (
-                        <div key={drive.firstname} className="mx-auto">
-                          <h3 className="text-base lg:text-lg font-extralight hover:text-white hover:underline">
+                    <div className="grid grid-cols-2 lg:grid-cols-5 gap-5 pb-5 mt-5">
+                      {drivers.map(drive => (
+                        <Link
+                          href={`/drivers/${drive.firstname.toLowerCase()}${drive.lastname.toLowerCase()}`}
+                          key={drive.firstname}
+                          className="mx-auto"
+                        >
+                          <h3 className="text-base lg:text-lg font-normal hover:text-black hover:bg-white border-t border-r p-3 rounded-full">
                             {drive.firstname} {drive.lastname}
                           </h3>
-                        </div>
+                        </Link>
                       ))}
                     </div>
                   ) : null}

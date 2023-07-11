@@ -1,15 +1,18 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 export default function NavCenter() {
   return (
     <div className="w-52 h-20">
-      <Image
-        src="/filogowhite.png"
-        alt="logof1"
-        fill
-        className="object-contain"
-      />
+      <Link href="/">
+        <Image
+          src="/filogowhite.png"
+          alt="logof1"
+          fill
+          className="object-contain"
+        />
+      </Link>
     </div>
   );
 }

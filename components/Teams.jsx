@@ -4,15 +4,21 @@ import { Menu, Transition } from '@headlessui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Teams({ results }) {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+
+  const navigateToTeamsPage = teamPage => {
+    router.push(`/${teamPage}`);
+  };
 
   return (
     <Menu>
       {({ isOpen }) => (
         <>
-          <Menu.Button className="hover:text-white hover:underline">
+          <Menu.Button className="hover:text-white hover:underline z-50">
             Teams
           </Menu.Button>
           <Transition
@@ -33,7 +39,7 @@ export default function Teams({ results }) {
                   <div className="flex gap-x-10 ml-10 mr-10 my-5 py-2 rounded-br-xl hover:border-white">
                     <Link
                       href="/all-teams"
-                      className="bg-[#880808] p-2  rounded-full hover:shadow-2xl hovers"
+                      className="bg-[#070C16] p-2  rounded-full hover:shadow-2xl hovers"
                     >
                       All Teams
                     </Link>
@@ -43,11 +49,12 @@ export default function Teams({ results }) {
                       <div className="grid grid-cols-2 lg:grid-cols-5 gap-5 pb-5 mx-auto">
                         {results.map(team => (
                           <Link
-                            href={`/teams/${team.team_name
+                            href={`${team.team_name
                               .toLowerCase()
                               .replace('racing', '')
                               .split(' ')
-                              .join('')}`}
+                              .join('')}
+                          `}
                             key={team.team_name}
                             className="ml-5 border-r border-t rounded-xl hovers"
                           >

@@ -1,8 +1,8 @@
-import React from "react";
-import Drivers from "./Drivers";
+import React from 'react';
+import Drivers from './Drivers';
 
-import { fetchDriversF1, fetchTeamsF1 } from "@/utils";
-import Teams from "./Teams";
+import { fetchDriversF1, fetchTeamsF1 } from '@/utils';
+import Teams from './Teams';
 
 export default async function NavBottom() {
   const f1Drivers = await fetchDriversF1();
@@ -11,7 +11,7 @@ export default async function NavBottom() {
   const { results } = f1Teams;
 
   return (
-    <div className="w-full flex items-center justify-evenly h-10 bg-[#880808] text-white">
+    <div className="w-full flex items-center justify-evenly h-10 bg-[#070C16] text-white">
       <div className="text-header">
         <Drivers drivers={drivers} />
       </div>

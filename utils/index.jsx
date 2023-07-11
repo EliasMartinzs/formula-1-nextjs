@@ -8,6 +8,19 @@ const options = {
   'X-RapidAPI-Host': 'f1-live-motorsport-data.p.rapidapi.com',
 };
 
+export const fetchDriversDetailsF1 = async drive => {
+  const response = await fetch(
+    `https://fia-formula-1-championship-statistics.p.rapidapi.com/api/drivers/details/${drive}`,
+    {
+      headers: headers,
+    }
+  );
+
+  const driverDetails = await response.json();
+
+  return driverDetails;
+};
+
 export const fetchTeamsDetailsF1 = async team => {
   const response = await fetch(
     `https://fia-formula-1-championship-statistics.p.rapidapi.com/api/teams/details/${team}`,
